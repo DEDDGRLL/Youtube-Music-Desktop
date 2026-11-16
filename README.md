@@ -136,7 +136,7 @@ The Now Playing panel names the song it searched for, or shows the error if the 
 ## Roadmap
 
 - [ ] Mini-player
-- [ ] Albums and artists in the library
+- [x] Albums and artists in the library
 
 ## Contributing
 
