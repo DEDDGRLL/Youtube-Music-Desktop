@@ -128,6 +128,11 @@ YouTube Music's internal API changes now and then. Update the library first: `np
 The Now Playing panel names the song it searched for, or shows the error if the lyrics service couldn't be reached. Some songs simply have no synced lyrics available.
 </details>
 
+<details>
+<summary><b>Couldnt load https error</b></summary> 
+
+Sign out and sign back in.
+
 ## Known limitations
 
 - Each song change loads a fresh player page (about a second), so **shuffle and repeat may reset** when you switch songs.
