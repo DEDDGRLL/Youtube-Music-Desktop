@@ -132,6 +132,7 @@ The Now Playing panel names the song it searched for, or shows the error if the 
 <summary><b>Couldnt load https error</b></summary> 
 
 Sign out and sign back in.
+</details>
 
 ## Known limitations
 
