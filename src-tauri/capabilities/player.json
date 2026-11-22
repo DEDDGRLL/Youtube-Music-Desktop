@@ -1,0 +1,8 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "player",
+  "description": "Lets the hidden music.youtube.com player report its state to the app. Only player_state.",
+  "windows": ["player"],
+  "remote": { "urls": ["https://music.youtube.com/*"] },
+  "permissions": ["allow-player-state"]
+}

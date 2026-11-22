@@ -1,0 +1,31 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main",
+  "description": "Permissions for the app UI window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "allow-player-call",
+    "allow-get-cookies",
+    "allow-show-login",
+    "allow-hide-login",
+    "allow-sign-out",
+    "allow-show-player",
+    "allow-get-settings",
+    "allow-set-settings",
+    "allow-toggle-mini",
+    "allow-show-main-window",
+    "allow-open-link",
+    "allow-check-update",
+    "allow-install-update",
+    {
+      "identifier": "http:default",
+      "allow": [
+        { "url": "https://*.youtube.com/*" },
+        { "url": "https://*.googleapis.com/*" },
+        { "url": "https://lrclib.net/*" },
+        { "url": "https://api.github.com/*" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-hide-login"
+description = "Enables the hide_login command without any pre-configured scope."
+commands.allow = ["hide_login"]
+
+[[permission]]
+identifier = "deny-hide-login"
+description = "Denies the hide_login command without any pre-configured scope."
+commands.deny = ["hide_login"]
