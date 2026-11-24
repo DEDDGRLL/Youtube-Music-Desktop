@@ -36,6 +36,8 @@ Your playlists, Liked Music, artist pages and time-synced lyrics in a fast nativ
 | **Playlist controls** | Add a song to any playlist or a new one, remove songs, rename and delete your own playlists. |
 | **Search in a playlist** | Filter any playlist, album or Liked Music by title, artist or album. Ctrl+F jumps to the filter. |
 | **Mini-player** | A small always-on-top window with the song and basic controls. |
+| **Listening history and stats** | Your top songs and artists by week, month, year or all time, plus recent plays. |
+| **ListenBrainz scrobbling** | Optionally send what you listen to to your ListenBrainz account. |
 | **Explore** | New releases, charts, and moods and genres, from the Explore page in the sidebar. |
 | **Search suggestions and filters** | Suggestions as you type, recent searches, and result filters for songs, albums, artists and playlists. |
 | **Library tabs** | Browse your playlists, songs, albums and artists. |
@@ -164,6 +166,16 @@ Click a shortcut in Settings, then press the keys you want. Backspace clears it 
 - **Search** shows suggestions as you type. With the box empty, it lists your recent searches. Use the chips under a search (All, Songs, Albums, Artists, Playlists) to narrow the results.
 - **Library** has tabs for Playlists, Songs, Albums and Artists, using the sections YouTube Music offers for your account.
 
+## Listening history
+
+A song counts as listened to when it is longer than 30 seconds and you've played at least half of it, or 4 minutes, whichever comes first. Time is counted only while the song is actually playing, so pausing, seeking around, ads and skipping through songs don't inflate it. A song on repeat counts each time round.
+
+Open **History** in the sidebar for your totals, top songs and top artists (last 7 days, 30 days, year or all time) and a list of recent plays. Click a song to play it or an artist to open them. **Copy as CSV** puts your whole history on the clipboard, and **Clear history** wipes it. The history is stored on your computer only, and you can turn it off under **Settings, Listening history**.
+
+### ListenBrainz
+
+[ListenBrainz](https://listenbrainz.org) is a free, open service that keeps your listening history online. To connect it, sign in at listenbrainz.org, copy your user token from your settings page, and paste it under **Settings, Listening history**. The app then reports the current song as it starts and submits each finished listen. If you're offline or ListenBrainz is busy, plays wait in a queue and are sent later. Disconnecting removes the token and the queue.
+
 ## Explore
 
 The **Explore** entry in the sidebar shows new releases and trending music. Its buttons open New releases, Charts, and Moods and genres, and each mood or genre opens its own playlists.
@@ -226,6 +238,7 @@ Discord must be running on the same computer. If nothing appears, check that act
 - Your Google sign-in happens on Google's page. Cookies stay on your computer and are used only to talk to YouTube Music.
 - There is no telemetry and no server of ours.
 - Looking up lyrics sends the song title, artist and length to [LRCLIB](https://lrclib.net).
+- Your listening history stays on your computer. If you connect ListenBrainz, the title, artist, album and length of each song you listen to are sent to your ListenBrainz account, and your token is kept on this computer.
 - With Discord Rich Presence on, the song title, artist and artwork are sent to your local Discord app, which shows them on your profile.
 
 ## Troubleshooting
@@ -281,6 +294,8 @@ src-tauri/src/settings.rs Saved user settings
 src-tauri/src/discord.rs  Discord Rich Presence
 src-tauri/src/media.rs    Windows media overlay
 src-tauri/src/update.rs   In-app updates
+src/lib/tracker.ts        Decides when a song counts as a listen
+src/lib/listenbrainz.ts   ListenBrainz client
 src-tauri/src/bridge.js   Script injected into music.youtube.com
 src-tauri/capabilities/   Per-window permission rules
 .github/workflows/        Release build (Windows)

@@ -89,6 +89,7 @@ export type View =
   | { name: 'search'; query: string; type?: SearchType }
   | { name: 'liked' }
   | { name: 'settings' }
+  | { name: 'stats' }
   | { name: 'browse'; browseId: string; params?: string; title: string }
   | { name: 'artist'; id: string; title?: string }
   | { name: 'collection'; collection: Collection };

@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Card, Cover, ShelfRow, TrackList } from './components/Cards';
 import DialogHost, { type DialogState } from './components/Dialogs';
-import { Back, Close, Explore, Gear, Heart, Home, Library, Plus, Search } from './components/Icons';
+import { Back, Close, Explore, Gear, Heart, History, Home, Library, Plus, Search } from './components/Icons';
 import NowPlaying from './components/NowPlaying';
 import PlayerBar from './components/PlayerBar';
 import QueuePanel from './components/QueuePanel';
 import SearchBox from './components/SearchBox';
 import SettingsView from './components/SettingsView';
+import StatsView from './components/StatsView';
 import TrackMenu, { type MenuTarget } from './components/TrackMenu';
 import SignIn from './components/SignIn';
 import { auth, player, usePlayerSel } from './lib/player';
@@ -167,6 +168,7 @@ export default function App() {
           {nav('browse', 'Explore', <Explore />, { name: 'browse', browseId: 'FEmusic_explore', title: 'Explore' })}
           {nav('library', 'Library', <Library />, { name: 'library' })}
           {nav('liked', 'Liked Music', <Heart />, { name: 'liked' })}
+          {nav('stats', 'History', <History />, { name: 'stats' })}
         </nav>
         <div className="side-label-row">
           <span className="side-label">Playlists</span>
@@ -203,6 +205,7 @@ export default function App() {
             />
           )}
           {view.name === 'artist' && <ArtistView key={view.id} id={view.id} title={view.title} onOpen={open} onPlay={play} onArtist={openArtist} onAlbum={openAlbum} />}
+          {view.name === 'stats' && <StatsView onArtist={openArtist} />}
           {view.name === 'settings' && <SettingsView onSignOut={async () => { await auth.signOut(); location.reload(); }} />}
           {view.name === 'library' && <LibraryView items={playlists} onOpen={open} onPlay={play} onNew={() => setDialog({ kind: 'new' })} onArtist={openArtist} onAlbum={openAlbum} onMenu={setMenu} />}
           {view.name === 'liked' && <TrackPageView key={`liked-${pageVersion}`} cacheKey="pl:LM" liked load={(cb) => ytm.likedSongs(cb)} onArtist={openArtist} onAlbum={openAlbum} onMenu={setMenu} onRename={() => {}} onDelete={() => {}} />}

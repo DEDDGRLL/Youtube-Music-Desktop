@@ -24,7 +24,8 @@
         { "url": "https://*.youtube.com/*" },
         { "url": "https://*.googleapis.com/*" },
         { "url": "https://lrclib.net/*" },
-        { "url": "https://api.github.com/*" }
+        { "url": "https://api.github.com/*" },
+        { "url": "https://api.listenbrainz.org/*" }
       ]
     }
   ]

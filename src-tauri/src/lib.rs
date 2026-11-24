@@ -229,7 +229,7 @@ fn show_main_window(window: WebviewWindow, app: AppHandle) -> Result<(), String>
 #[tauri::command]
 fn open_link(window: WebviewWindow, app: AppHandle, url: String) -> Result<(), String> {
     only(&window, "main")?;
-    const ALLOWED: &[&str] = &["https://github.com/", "https://discord.com/developers/"];
+    const ALLOWED: &[&str] = &["https://github.com/", "https://discord.com/developers/", "https://listenbrainz.org/"];
     if !ALLOWED.iter().any(|p| url.starts_with(p)) {
         return Err("That link isn't allowed.".into());
     }

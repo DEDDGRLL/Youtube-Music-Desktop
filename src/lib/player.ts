@@ -61,6 +61,13 @@ export async function initPlayerBridge() {
   });
 }
 
+/** Be called with the full player state after every update (for code outside React). */
+export function subscribeState(fn: (s: PlayerState) => void) {
+  const handler = () => fn(state);
+  subs.add(handler);
+  return () => { subs.delete(handler); };
+}
+
 /** Subscribe to a slice of player state. Selector must return a primitive. */
 export function usePlayerSel<T>(sel: (s: PlayerState) => T): T {
   return useSyncExternalStore(subscribe, () => sel(state));

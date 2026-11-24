@@ -4,23 +4,8 @@ import { windows } from '../lib/player';
 import { comboFromEvent, getSettings, KEY_ACTIONS, prettyCombo, saveSettings, type Settings } from '../lib/settings';
 import { checkForUpdate, installUpdate, openLink, type UpdateStatus } from '../lib/updates';
 import Diagnostics from './Diagnostics';
-
-function Row({ title, desc, checked, disabled, onChange }: {
-  title: string; desc: ReactNode; checked: boolean; disabled?: boolean; onChange: (on: boolean) => void;
-}) {
-  return (
-    <div className={`set-row ${disabled ? 'is-disabled' : ''}`}>
-      <div className="set-text">
-        <div className="set-title">{title}</div>
-        <div className="set-desc">{desc}</div>
-      </div>
-      <button
-        className="switch" role="switch" aria-checked={checked} aria-label={title} disabled={disabled}
-        onClick={() => onChange(!checked)}
-      ><span /></button>
-    </div>
-  );
-}
+import ListeningSettings from './ListeningSettings';
+import Row from './SettingsRow';
 
 /** Click, then press the keys to record a shortcut. Backspace clears it, Esc cancels. */
 function KeyCapture({ value, onChange, onProblem }: { value: string; onChange: (combo: string) => void; onProblem: (message: string) => void }) {
@@ -205,6 +190,8 @@ export default function SettingsView({ onSignOut }: { onSignOut: () => void }) {
           </p>
         </div>
       </section>
+
+      <ListeningSettings />
 
       <section className="set-section">
         <h2>Account</h2>
