@@ -1,6 +1,6 @@
 [package]
 name = "ytm-desktop"
-version = "2.1.0"
+version = "2.1.1"
 description = "A lightweight desktop client for YouTube Music"
 edition = "2021"
 license = "MIT"
